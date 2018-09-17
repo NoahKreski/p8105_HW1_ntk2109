@@ -1,28 +1,35 @@
 ---
 title: "p8105_HW1_ntk2109_markdown"
-output: html_document
+author: Noah Kreski
+Date: September 21, 2018
+output: github_document
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library (tidyverse)
+```
+Problem 1 - Creating a data frame comprised of:
+
+A random sample of size 10 from a uniform [0,5] distribution
+
+A logical vector indicating whether elements of the sample are greater than 2
+
+A (length-10) character vector
+
+A (length-10) factor vector
+
+
+```{r problem_one}
+set.seed(1)
+
+question_one_df = tibble(
+  uniform_samp = runif(10, 0, 5),
+  logical_vec = c((uniform_samp)>2)
+  
+)
+
 ```
 
-## R Markdown
-
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
-```
-
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+(question_one_df$uniform_samp)
+(question_one_df$logical_vec)
