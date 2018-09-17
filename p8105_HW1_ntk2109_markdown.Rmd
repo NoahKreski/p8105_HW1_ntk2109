@@ -25,11 +25,14 @@ set.seed(1)
 
 question_one_df = tibble(
   uniform_samp = runif(10, 0, 5),
-  logical_vec = c((uniform_samp)>2)
-  
+  logical_vec_one = c((uniform_samp)>2),
+  character_vec_one = c("This", "is", "a", "character", "vector", "that", "has", "length", "of", "ten"),
+  factor_vec_one = c("male", "female","male", "female","male", "female","male", "female","male", "female")
 )
 
 ```
 
-(question_one_df$uniform_samp)
-(question_one_df$logical_vec)
+The mean of the random sample is `r mean(question_one_df$uniform_samp)`.
+The mean of the logical vector is `r mean(question_one_df$logical_vec_one)`.
+The mean of the character vector is `r mean(question_one_df$character_vec_one)`.
+The mean of the factor vector is `r mean(question_one_df$factor_vec_one)`.
