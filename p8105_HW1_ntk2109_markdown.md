@@ -23,4 +23,4 @@ question_one_df = tibble(
 )
 ```
 
-2.7575694 0.6 NA NA
+The mean of the random sample is 2.7575694. The mean of the logical vector is 0.6. The mean of the character vector is NA. The mean of the factor vector is NA.
