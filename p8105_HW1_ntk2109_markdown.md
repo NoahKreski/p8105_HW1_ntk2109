@@ -2,8 +2,8 @@ p8105\_HW1\_ntk2109\_markdown
 ================
 Noah Kreski
 
-A. Question One, vectors
-------------------------
+1A. Question One, vectors
+-------------------------
 
 Problem 1 - Creating a data frame comprised of:
 
@@ -70,3 +70,29 @@ The new mean of the character vector is 5.5.
 The new mean of the factor vector is NA.
 
 It appears that converting from a character vector to a factor vector to a numeric one will allow for the computation of a mean, but converting from factor to character to numeric produces issues, just as seen in part b when converting from character to numeric.
+
+2A Data Frame for random sample
+-------------------------------
+
+Creating a data frame comprised of:
+
+x: a random sample of size 1000 from a standard Normal distribution
+
+y: a random sample of size 1000 from a standard Normal distribution
+
+A logical vector indicating whether the x + y &gt; 0
+
+A numeric vector created by coercing the above logical vector
+
+A factor vector created by coercing the above logical vector
+
+``` r
+set.seed(1)
+random_df = tibble(
+  x = rnorm(1000),
+  y = rnorm(1000),
+  random_logical = c((x+y)>0),
+  random_numeric = as.numeric(random_logical),
+  random_factor =factor(c(random_logical))
+)
+```
