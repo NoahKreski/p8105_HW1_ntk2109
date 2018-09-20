@@ -112,3 +112,17 @@ The size of the data set is `r nrow(random_df)` observations with `r ncol(random
 The mean of x is `r mean(random_df$x)` and the median is `r median(random_df$x)`.
 
 The proportion of cases for which the logical vector is true is `r mean(random_df$random_numeric)`.
+
+##B. Scatterplots
+
+Scatterplot of y vs x
+
+```{r problem_two_b}
+
+ggplot(random_df, aes(x=x,y=y, color = random_df$random_logical)) +geom_point()
+ggsave("HW1Scatterplot.pdf")
+
+ggplot(random_df, aes(x=x,y=y, color = random_df$random_factor)) +geom_point()
+ggplot(random_df, aes(x=x,y=y, color = random_df$random_factor)) +geom_point()
+
+```
