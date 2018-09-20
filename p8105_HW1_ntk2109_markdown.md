@@ -2,8 +2,8 @@ p8105\_HW1\_ntk2109\_markdown
 ================
 Noah Kreski
 
-Question One
-------------
+A. Question One, vectors
+------------------------
 
 Problem 1 - Creating a data frame comprised of:
 
@@ -36,6 +36,9 @@ The mean of the factor vector is NA.
 
 For the random sample and logical vector, means were produced. For the character vector and factor vector, no means were produced.
 
+B. Conversion to numeric
+------------------------
+
 ``` r
 question_one_numeric_df = tibble(
   logical_vec_one_numeric = as.numeric(question_one_df$logical_vec_one),
@@ -44,10 +47,26 @@ question_one_numeric_df = tibble(
 )
 ```
 
-    ## Warning in eval_tidy(xs[[i]], unique_output): NAs introduced by coercion
-
 The new mean of the logical vector is 0.6.
 
 The new mean of the character vector is NA.
 
 The new mean of the factor vector is 1.5.
+
+Now, both the logical and factor vectors produce mean values, whereas the character vector is incapable of being converted this way.
+
+C. Double conversion of factor and character vectors
+----------------------------------------------------
+
+``` r
+double_conversion_df = tibble(
+  character_vec_one_double = as.numeric(factor(c(question_one_df$character_vec_one))),
+  factor_vec_one_double =  as.numeric(as.character(question_one_df$factor_vec_one))
+)
+```
+
+The new mean of the character vector is 5.5.
+
+The new mean of the factor vector is NA.
+
+It appears that converting from a character vector to a factor vector to a numeric one will allow for the computation of a mean, but converting from factor to character to numeric produces issues, just as seen in part b when converting from character to numeric.
