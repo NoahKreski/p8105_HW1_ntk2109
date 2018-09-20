@@ -16,6 +16,7 @@ A (length-10) character vector
 A (length-10) factor vector
 
 ``` r
+#using data frame to establish vectors
 set.seed(1)
 
 question_one_df = tibble(
@@ -40,6 +41,7 @@ B. Conversion to numeric
 ------------------------
 
 ``` r
+#creating data frame to convert previous vectors to numeric
 question_one_numeric_df = tibble(
   logical_vec_one_numeric = as.numeric(question_one_df$logical_vec_one),
   character_vec_one_numeric = as.numeric(question_one_df$character_vec_one),
@@ -59,6 +61,7 @@ C. Double conversion of factor and character vectors
 ----------------------------------------------------
 
 ``` r
+#creating data frame for double conversion
 double_conversion_df = tibble(
   character_vec_one_double = as.numeric(factor(c(question_one_df$character_vec_one))),
   factor_vec_one_double =  as.numeric(as.character(question_one_df$factor_vec_one))
@@ -87,6 +90,7 @@ A numeric vector created by coercing the above logical vector
 A factor vector created by coercing the above logical vector
 
 ``` r
+#creating data frame for x,y,and related vectors
 set.seed(1)
 random_df = tibble(
   x = rnorm(1000),
@@ -104,3 +108,33 @@ The size of the data set is 1000 observations with 5 variables for each.
 The mean of x is -0.0116481 and the median is -0.0353242.
 
 The proportion of cases for which the logical vector is true is 0.49.
+
+B. Scatterplots
+---------------
+
+Scatterplots of y vs x
+
+``` r
+#creating scatterplots with data frame vectors for x, y, and color
+
+ggplot(random_df, aes(x=x,y=y, color = random_df$random_logical)) +geom_point()
+```
+
+![](p8105_HW1_ntk2109_markdown_files/figure-markdown_github/problem_two_b-1.png)
+
+``` r
+ggsave("HW1Scatterplot.pdf")
+
+
+ggplot(random_df, aes(x=x,y=y, color = random_df$random_numeric)) +geom_point()
+```
+
+![](p8105_HW1_ntk2109_markdown_files/figure-markdown_github/problem_two_b-2.png)
+
+``` r
+ggplot(random_df, aes(x=x,y=y, color = random_df$random_factor)) +geom_point()
+```
+
+![](p8105_HW1_ntk2109_markdown_files/figure-markdown_github/problem_two_b-3.png)
+
+The color schemes for the logical and factor scatterplots is identical, using two categories of True and False either as logical statements or factors, but the numeric scatterplot has instead a scale between the maximum and minimum values, even though all values are 1 or 0.

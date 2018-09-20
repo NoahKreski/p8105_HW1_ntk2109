@@ -23,6 +23,7 @@ A (length-10) factor vector
 
 
 ```{r problem_one_a}
+#using data frame to establish vectors
 set.seed(1)
 
 question_one_df = tibble(
@@ -47,6 +48,7 @@ For the random sample and logical vector, means were produced. For the character
 ##B. Conversion to numeric
 
 ```{r problem_one_b}
+#creating data frame to convert previous vectors to numeric
 question_one_numeric_df = tibble(
   logical_vec_one_numeric = as.numeric(question_one_df$logical_vec_one),
   character_vec_one_numeric = as.numeric(question_one_df$character_vec_one),
@@ -66,6 +68,7 @@ Now, both the logical and factor vectors produce mean values, whereas the charac
 ##C. Double conversion of factor and character vectors
 
 ```{r problem_one_c}
+#creating data frame for double conversion
 double_conversion_df = tibble(
   character_vec_one_double = as.numeric(factor(c(question_one_df$character_vec_one))),
   factor_vec_one_double =  as.numeric(as.character(question_one_df$factor_vec_one))
@@ -94,6 +97,7 @@ A numeric vector created by coercing the above logical vector
 A factor vector created by coercing the above logical vector
 
 ```{r problem_two_a}
+#creating data frame for x,y,and related vectors
 set.seed(1)
 random_df = tibble(
   x = rnorm(1000),
@@ -111,18 +115,24 @@ The size of the data set is `r nrow(random_df)` observations with `r ncol(random
 
 The mean of x is `r mean(random_df$x)` and the median is `r median(random_df$x)`.
 
-The proportion of cases for which the logical vector is true is `r mean(random_df$random_numeric)`.
+The proportion of cases for which the logical vector is true is `r mean(random_df$random_logical)`.
 
 ##B. Scatterplots
 
-Scatterplot of y vs x
+Scatterplots of y vs x
 
 ```{r problem_two_b}
+#creating scatterplots with data frame vectors for x, y, and color
 
 ggplot(random_df, aes(x=x,y=y, color = random_df$random_logical)) +geom_point()
 ggsave("HW1Scatterplot.pdf")
 
-ggplot(random_df, aes(x=x,y=y, color = random_df$random_factor)) +geom_point()
+
+ggplot(random_df, aes(x=x,y=y, color = random_df$random_numeric)) +geom_point()
+
 ggplot(random_df, aes(x=x,y=y, color = random_df$random_factor)) +geom_point()
 
 ```
+
+
+The color schemes for the logical and factor scatterplots is identical, using two categories of True and False either as logical statements or factors, but the numeric scatterplot has instead a scale between the maximum and minimum values, even though all values are 1 or 0.
