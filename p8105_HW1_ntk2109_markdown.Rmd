@@ -8,7 +8,10 @@ output: github_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library (tidyverse)
+warning = FALSE
 ```
+##Question One
+
 Problem 1 - Creating a data frame comprised of:
 
 A random sample of size 10 from a uniform [0,5] distribution
@@ -20,19 +23,39 @@ A (length-10) character vector
 A (length-10) factor vector
 
 
-```{r problem_one}
+```{r problem_one_a}
 set.seed(1)
 
 question_one_df = tibble(
   uniform_samp = runif(10, 0, 5),
   logical_vec_one = c((uniform_samp)>2),
   character_vec_one = c("This", "is", "a", "character", "vector", "that", "has", "length", "of", "ten"),
-  factor_vec_one = c("male", "female","male", "female","male", "female","male", "female","male", "female")
-)
+  factor_vec_one = factor(c("male", "female","male", "female","male", "female","male", "female","male", "female")
+))
 
 ```
 
 The mean of the random sample is `r mean(question_one_df$uniform_samp)`.
+
 The mean of the logical vector is `r mean(question_one_df$logical_vec_one)`.
+
 The mean of the character vector is `r mean(question_one_df$character_vec_one)`.
+
 The mean of the factor vector is `r mean(question_one_df$factor_vec_one)`.
+
+For the random sample and logical vector, means were produced. For the character vector and factor vector, no means were produced.
+
+```{r problem_one_b}
+question_one_numeric_df = tibble(
+  logical_vec_one_numeric = as.numeric(question_one_df$logical_vec_one),
+  character_vec_one_numeric = as.numeric(question_one_df$character_vec_one),
+  factor_vec_one_numeric =  as.numeric(question_one_df$factor_vec_one)
+)
+
+```
+
+The new mean of the logical vector is `r mean(question_one_numeric_df$logical_vec_one_numeric)`.
+
+The new mean of the character vector is `r mean(question_one_numeric_df$character_vec_one_numeric)`.
+
+The new mean of the factor vector is `r mean(question_one_numeric_df$factor_vec_one_numeric)`.
