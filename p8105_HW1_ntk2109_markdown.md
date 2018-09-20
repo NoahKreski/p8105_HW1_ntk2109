@@ -35,7 +35,7 @@ The mean of the character vector is NA.
 
 The mean of the factor vector is NA.
 
-For the random sample and logical vector, means were produced. For the character vector and factor vector, no means were produced.
+For the random sample and logical vector, means were produced, because there is a meaningful interpretation of the means, the mean for the random sample and the proportion of TRUE values for the logical vector. For the character vector and factor vector, no means were produced, as these would have no input that can be averaged.
 
 B. Conversion to numeric
 ------------------------
@@ -55,7 +55,7 @@ The new mean of the character vector is NA.
 
 The new mean of the factor vector is 1.5.
 
-Now, both the logical and factor vectors produce mean values, whereas the character vector is incapable of being converted this way.
+Now, both the logical and factor vectors produce mean values, indicating successful conversion, whereas the character vector is incapable of being converted this way.
 
 C. Double conversion of factor and character vectors
 ----------------------------------------------------
@@ -72,7 +72,7 @@ The new mean of the character vector is 5.5.
 
 The new mean of the factor vector is NA.
 
-It appears that converting from a character vector to a factor vector to a numeric one will allow for the computation of a mean, but converting from factor to character to numeric produces issues, just as seen in part b when converting from character to numeric.
+It appears that converting from a character vector to a factor vector to a numeric one is possible, and will allow for the computation of a mean, but converting from factor to character to numeric produces issues, just as seen in part b when converting from character to numeric.
 
 2A. Data Frame for random sample, description of vector
 -------------------------------------------------------
