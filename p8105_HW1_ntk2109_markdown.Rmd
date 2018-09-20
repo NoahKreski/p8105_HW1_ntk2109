@@ -79,7 +79,7 @@ The new mean of the factor vector is `r mean(double_conversion_df$factor_vec_one
 
 It appears that converting from a character vector to a factor vector to a numeric one will allow for the computation of a mean, but converting from factor to character to numeric produces issues, just as seen in part b when converting from character to numeric.
 
-##2A Data Frame for random sample
+##2A. Data Frame for random sample, description of vector
 
 Creating a data frame comprised of:
 
@@ -104,3 +104,11 @@ random_df = tibble(
 )
 
 ```
+
+The above code produces vectors with the following characteristics:
+
+The size of the data set is `r nrow(random_df)` observations with `r ncol(random_df)` variables for each.
+
+The mean of x is `r mean(random_df$x)` and the median is `r median(random_df$x)`.
+
+The proportion of cases for which the logical vector is true is `r mean(random_df$random_numeric)`.

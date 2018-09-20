@@ -71,8 +71,8 @@ The new mean of the factor vector is NA.
 
 It appears that converting from a character vector to a factor vector to a numeric one will allow for the computation of a mean, but converting from factor to character to numeric produces issues, just as seen in part b when converting from character to numeric.
 
-2A Data Frame for random sample
--------------------------------
+2A. Data Frame for random sample, description of vector
+-------------------------------------------------------
 
 Creating a data frame comprised of:
 
@@ -96,3 +96,11 @@ random_df = tibble(
   random_factor =factor(c(random_logical))
 )
 ```
+
+The above code produces vectors with the following characteristics:
+
+The size of the data set is 1000 observations with 5 variables for each.
+
+The mean of x is -0.0116481 and the median is -0.0353242.
+
+The proportion of cases for which the logical vector is true is 0.49.
